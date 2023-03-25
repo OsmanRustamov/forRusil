@@ -4,12 +4,11 @@ from typing import Union
 # 102936456214652135727561205, 92057275512051510293645621465513572755120529364562146275512
 # 72750120615, 77776710012
 def x(var: str, t: Union[int, oct, bin, hex]):
-    for i in var:
-        if i.isalpha():
-            return "Ошибка!\nИмеется буква"
-    if t != Union[int]:
-        return t(int(var))[2:]
-    return int(var)
+    if var.isdigit():
+        if t != Union[int]:
+            return t(int(var))[2:]
+        return int(var)
+    return "Ошибка!\nИмеется буква"
 
 
 x1 = input(
