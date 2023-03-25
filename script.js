@@ -84,3 +84,4 @@ function main()
     setDay();
     getYear();
 }
+main()
