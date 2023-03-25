@@ -1,11 +1,11 @@
 from typing import Union
 
 
-def conversion_to_another_number_system(var: str, t: Union[int, oct, bin, hex]):
-    if var.isdigit():
-        if t != Union[int]:
-            return t(int(var))[2:]
-        return int(var)
+def conversion_to_another_number_system(num_str: str, number_system_type: Union[int, oct, bin, hex]):
+    if num_str.isdigit():
+        if number_system_type != Union[int]:
+            return number_system_type(int(num_str))[2:]
+        return int(num_str)
     return "Ошибка!\nИмеется буква"
 
 
