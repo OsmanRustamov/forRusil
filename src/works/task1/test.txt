@@ -1,0 +1,7 @@
+a = "fuck"
+b = "you"
+
+
+
+
+ print(a + b)
