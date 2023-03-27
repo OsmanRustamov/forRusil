@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QRadioButton, QComboBox, QCheckBox, QVBoxLayout, QMessageBox, QPushButton, QHBoxLayout
+from PyQt5.QtCore import QSize, QCoreApplication, QSettings
 import sys
 
 class Form(QWidget):
@@ -54,6 +55,23 @@ class Form(QWidget):
         # Устанавливаем созданное расположение в форме
         layout.addLayout(button_layout)
         self.setLayout(layout)
+
+        # Загружаем сохраненные данные при открытии окна
+        self.load_data()
+
+    def load_data(self):
+        # Создаем объект QSettings для чтения сохраненных данных
+        settings = QSettings('MyCompany', 'MyApp')
+        # Загружаем сохраненные значения для полей
+        self.name.setText(settings.value('name', ''))
+        self.group.setText(settings.value('group', ''))
+
+    def save_data(self):
+        # Создаем объект QSettings для записи данных
+        settings = QSettings('MyCompany', 'MyApp')
+        # Сохраняем значения полей
+        settings.setValue('name', self.name.text())
+        settings.setValue('group', self.group.text())
 
     def show_data(self):
         # Собираем данные из полей ввода
