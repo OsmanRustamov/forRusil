@@ -1,5 +1,5 @@
 let months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
-let name = document.querySelector(".name").value;
+let name = document.getElementById("name").value;
 let group = document.querySelector(".group").value;
 let sex = document.querySelector(".sex").value;
 let birthday = document.querySelector(".birthday").value;
@@ -7,7 +7,6 @@ let birthmonth = document.querySelector(".birthmonth").value;
 let birthyear = document.querySelector(".birthyear").value;
 let isDriver = document.querySelector(".isDriver").value;
 let btn = document.getElementById("submit");
-let birth = birthday + '.' + birthmonth + '.' + birthyear
 
 function setDay()
 {
@@ -60,31 +59,35 @@ function setYears()
     }
 }
 
-let day = document.getElementById("day")
-let month = document.getElementById("month")
-let year = document.getElementById("year")
-
-day = day.options[day.selectedIndex].value
-month = month.options[month.selectedIndex].value
-year = year.options[year.selectedIndex].value
-
 function getYear()
 {
-    let today = new Date()
-    let yearBeforePension = today.getUTCFullYear() - birthyear
-    return yearBeforePension
+    return parseInt(year.value);
+}
+let today = new Date
+function getYearBeforePension() 
+{
+    
+    return today.getFullYear - getYear()
 }
 
 
 btn.onclick = function ()
 {
-    if (name !== "" & group !== "" & sex !== "" & birthday !== "" & birthmonth !== "" & birthyear !== "")
+    if (name != "" && group != "" && sex != "")
     {
-        res = getYear()
-        alert(res + " " + birth)
+        alert(name.value)
+    } else if (name == "") 
+    {
+        alert("Field name is empty")
+    } else if (group == "")
+    {
+        alert("Field group is empty")
+    } else if (sex == "")
+    {
+        alert("Field sex is empty")
     } else
     {
-        alert(val)
+        alert(getYearBeforePension())
     }
 }
 
@@ -93,7 +96,5 @@ function main()
     setYears();
     setMonths();
     setDay();
-    getYear();
 }
 main()
-Footer
