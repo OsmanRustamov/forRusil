@@ -1,7 +1,7 @@
 let months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
-let name = document.getElementById("name").value;
-let group = document.querySelector(".group").value;
-let sex = document.querySelector(".sex").value;
+let name = document.getElementById("name");
+let group = document.querySelector(".group");
+let sex = document.getElementsByName("sex");
 let birthday = document.querySelector(".birthday").value;
 let birthmonth = document.querySelector(".birthmonth").value;
 let birthyear = document.querySelector(".birthyear").value;
@@ -59,35 +59,53 @@ function setYears()
     }
 }
 
+function getGender()
+{
+    for (let gender of sex)
+    {
+        if (gender.checked)
+        {
+            return gender.value
+        }
+    }
+}
+
 function getYear()
 {
     return parseInt(year.value);
 }
-let today = new Date
-function getYearBeforePension() 
+
+function getCurrentYear() 
 {
-    
-    return today.getFullYear - getYear()
+    let today = new Date 
+    return today.getFullYear() - getYear()
 }
 
+function getYearBeforePension()
+{
+    if (getGender() == 'female')
+    {
+        return 63 - getCurrentYear()
+    } else
+    {
+        return 65 - getCurrentYear()
+    }
+}
 
 btn.onclick = function ()
 {
-    if (name != "" && group != "" && sex != "")
-    {
-        alert(name.value)
-    } else if (name == "") 
+    if (name.value == "") 
     {
         alert("Field name is empty")
-    } else if (group == "")
+    } else if (group.value == "")
     {
         alert("Field group is empty")
-    } else if (sex == "")
+    } else if (getGender() == undefined)
     {
         alert("Field sex is empty")
     } else
     {
-        alert(getYearBeforePension())
+        alert("Current years = " + getCurrentYear() + "\nYears before pension = " + getYearBeforePension())
     }
 }
 
