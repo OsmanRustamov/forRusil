@@ -133,12 +133,15 @@ btn.onclick = function ()
     if (name.value == "") 
     {
         alert("Field name is empty")
+        name.style.border = "2px solid red";
     } else if (group.value == "")
     {
         alert("Field group is empty")
+        name.style.border = "2px solid red";
     } else if (getGender() == undefined)
     {
         alert("Field sex is empty")
+        sex.style.border = "2px solid red";
     } else
     {
         alert("Current years = " + getCurrentYear() + "\nYears before pension = " + getYearBeforePension())

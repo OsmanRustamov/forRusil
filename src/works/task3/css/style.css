@@ -17,6 +17,11 @@ body, html {
     margin: 10px;
     background-color: #bdb2b2;
 }
+.empty_input {
+    margin: 10px;
+    background-color: #bdb2b2;
+    border: #810303 solid 1px; 
+}
 .btn_submit {
     border: none;
     padding: 10px;
