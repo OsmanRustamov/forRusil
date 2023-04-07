@@ -12,30 +12,8 @@ def compare_numbers(num1: str, num2: str) -> str:
         return "Числа равны"
 
 
-user_choice = input(
-    "Выберите систему счисления:\n1) Десятичная (10-ичная)\n2) Восьмиричная (8-ичная)\n3) Двоичная (2-ичная)\n4) Шестнадцатиричная (16-ичная)\nВведите номер выбранной опции: ")
+if __name__ == '__main__':
+    var1 = input("Введите первое число: ").strip()
+    var2 = input("Введите второе число: ").strip()
 
-match user_choice:
-    case "1":
-        var1 = input("Введите первое число: ")
-        var2 = input("Введите второе число: ")
-
-        print(compare_numbers(var1, var2))
-
-    case "2":
-        var1 = input("Введите первое число: ")
-        var2 = input("Введите второе число: ")
-
-        print(compare_numbers(var1, var2))
-    case "3":
-        var1 = input("Введите первое число: ")
-        var2 = input("Введите второе число: ")
-
-        print(compare_numbers(var1, var2))
-    case "4":
-        var1 = input("Введите первое число: ")
-        var2 = input("Введите второе число: ")
-
-        print(compare_numbers(var1, var2))
-    case _:
-        print("Ошибка!\nВведите вариант от 1 до 4")
+    print(compare_numbers(var1, var2))
